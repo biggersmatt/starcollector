@@ -1,15 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-
-class Star:
-  def __init__(self, name, description, age):
-    self.name = name
-    self.description = description
-    self.age = age
-    
-stars = [
-  Star('Name', 'Description', 'Age'),
-]
+from .models import Star
 
 # Create your views here.
 def home(request):
@@ -18,5 +8,9 @@ def home(request):
 def about(request):
   return render(request, 'about.html')
 
-def stars(request):
+def stars_index(request):
+  stars = Star.objects.all()
   return render(request, 'stars/index.html', { 'stars': stars })
+
+def stars_detail(request):
+  return render(request, 'stars/detail.html')
