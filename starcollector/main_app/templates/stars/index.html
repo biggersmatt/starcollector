@@ -4,17 +4,14 @@
 <h1>Star List</h1>
 
 {% for star in stars %}
-  <div class="card">
-    <div class="card-content">
-      <span class="card-title">{{ star.name }}</span>
-      <p>Description: {{ star.description }}</p>
-      {% if star.age > 0 %}
-        <p>Age: {{ star.age }}</p>
-      {% else %}
-        <p>Age: Kitten</p>
-      {% endif %}
+  <a href="{% url 'detail' star.id %}">
+    <div class="card">
+      <div class="card-content">
+        <span class="card-title">{{ star.name }}</span>
+        <p>Description: {{ star.description }}</p>
+      </div>
     </div>
-  </div>
+  </a>
 {% endfor %}
 
 {% endblock %}

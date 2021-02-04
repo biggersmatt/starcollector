@@ -12,5 +12,6 @@ def stars_index(request):
   stars = Star.objects.all()
   return render(request, 'stars/index.html', { 'stars': stars })
 
-def stars_detail(request):
-  return render(request, 'stars/detail.html')
+def stars_detail(request, star_id):
+  star = Star.objects.get(id=star_id)
+  return render(request, 'stars/detail.html', { 'star': star })
