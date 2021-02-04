@@ -1,17 +1,28 @@
 from django.shortcuts import render, redirect
 from .models import Star
-from .forms import PlanetForm
+from .forms import StarForm, PlanetForm
 
 # Create your views here.
 def home(request):
-  return render(request, 'base.html')
+  return render(request, 'homepage.html')
 
 def about(request):
   return render(request, 'about.html')
 
 def stars_index(request):
   stars = Star.objects.all()
-  return render(request, 'stars/index.html', { 'stars': stars })
+  star_form = StarForm()
+  return render(request, 'stars/index.html', {
+    'stars': stars,
+    'star_form': star_form
+  })
+  
+def add_star(request):
+  form = StarForm(request.POST)
+  if form.is_valid():
+    new_star = form.save(commit=False)
+    new_star.save()
+  return redirect('stars')
 
 def stars_detail(request, star_id):
   star = Star.objects.get(id=star_id)
