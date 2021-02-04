@@ -14,24 +14,24 @@
     </div>
   </div>
 
-    <div class="col s6">
-    <form method="POST" action="{% url 'add_feeding' cat.id %}">
+  <div class="col s6">
+    <form method="POST" action="{% url 'add_planet' star.id %}">
       {% csrf_token %}
-      {{ feeding_form.as_p }}
-      <input type="submit" value="Add Feeding" class="btn">
+      {{ planet_form.as_p }}
+      <input type="submit" value="Add Planet" class="btn">
     </form>
     <table class="striped">
       <thead>
         <tr>
-          <th>Date</th>
-          <th>Meal</th>
+          <th>Name</th>
+          <th>Size</th>
         </tr>
       </thead>
       <tbody>
-        {% for feeding in cat.feeding_set.all %}
+        {% for planet in star.planet_set.all %}
           <tr>
-            <td>{{ feeding.date }}</td>
-            <td>{{ feeding.get_meal_display }}</td>
+            <td>{{ planet.name }}</td>
+            <td>{{ planet.get_size_display }}</td>
           </tr>
         {% endfor %}
       </tbody>
@@ -39,5 +39,11 @@
   </div>
 
 </div>
+
+<script>
+  const selectEl = document.getElementById('id_size');
+  M.FormSelect.init(selectEl);
+</script>
+
 {% endblock content %}
 
