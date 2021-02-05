@@ -24,8 +24,9 @@ def add_star(request):
     new_star.save()
   return redirect('stars')
 
-def remove_star(request, star_id):
-  Star.objects.get(id=star_id).delete()
+def delete_star(request, star_id):
+  if request.method == 'POST':
+    Star.objects.get(id=star_id).delete()
   return redirect('stars')
 
 def stars_detail(request, star_id):
