@@ -7,6 +7,7 @@ urlpatterns = [
     path('stars/', views.stars_index, name='stars'),
     path('stars/add_star/', views.add_star, name='add_star'),
     path('stars/<int:star_id>/', views.stars_detail, name='detail'),
+    path('stars/<int:star_id>/edit', views.edit_star, name='edit_star'),
     path('stars/<int:star_id>/delete', views.delete_star, name='delete_star'),
     path('stars/<int:star_id>/add_planet/', views.add_planet, name='add_planet')
 ]
