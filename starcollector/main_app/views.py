@@ -29,6 +29,11 @@ def edit_star(request, star_id):
   if request.method == 'GET':
     star_form = StarForm(instance=star)
     return render(request, 'stars/edit.html', {'form':star_form})
+  else:
+    star_form = StarForm(request.POST, instance=star)
+    if star_form.is_valid():
+      star_form.save()
+      return redirect('detail', star_id)
 
 def delete_star(request, star_id):
   if request.method == 'POST':
