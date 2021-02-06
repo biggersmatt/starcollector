@@ -13,3 +13,17 @@ footer {
   padding-top: 0;
   text-align: right;
 }
+
+/* Base.html */
+.nav-wrapper {
+  background-color: grey;
+  height: 100px;
+}
+
+.right {
+  color: purple
+}
+
+h1 {
+  color: red;
+}
