@@ -28,14 +28,14 @@
           <th>Size</th>
         </tr>
       </thead>
-      <tbody>
-        {% for planet in star.planet_set.all %}
-          <tr>
-            <td>{{ planet.name }}</td>
-            <td>{{ planet.get_size_display }}</td>
-          </tr>
-        {% endfor %}
-      </tbody>
+        <tbody>
+            {% for planet in star.planet_set.all %}
+                <tr>
+                  <td><a href="{% url 'detail_planet' star.id planet.id%}">{{ planet.name }}</a></td>
+                  <td>{{ planet.get_size_display }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
     </table>
   </div>
 

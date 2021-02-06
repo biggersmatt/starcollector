@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Star
+from .models import Star, Planet
 from .forms import StarForm, PlanetForm
 
 # Create your views here.
@@ -55,3 +55,14 @@ def add_planet(request, star_id):
     new_planet.star_id = star_id
     new_planet.save()
   return redirect('detail', star_id=star_id)
+
+def detail_planet(request, star_id, planet_id):
+  star = Star.objects.get(id=star_id)
+  planet = Planet.objects.get(id=planet_id)
+  if request.method == 'GET':
+    planet_form = PlanetForm(instance=planet)
+    return render(request, 'planets/detail.html', {
+      'form':planet_form,
+      'star':star,
+      'planet':planet,
+    })
