@@ -4,5 +4,10 @@
 
 <h1>{{planet.name}} Details Page</h1>
 <h3>{{planet.name}} orbits the star {{star.name}}</h3>
+{{form.as_p}}
+<form action="{% url 'delete_planet' star.id planet.id %}" method="POST">
+  {% csrf_token %}
+  <button type="submit" class="btn">Delete</button>
+</form>
 
 {% endblock content %}

@@ -33,7 +33,7 @@ def edit_star(request, star_id):
     star_form = StarForm(request.POST, instance=star)
     if star_form.is_valid():
       star_form.save()
-      return redirect('detail', star_id)
+      return redirect('detail_star', star_id)
 
 def delete_star(request, star_id):
   if request.method == 'POST':
@@ -54,7 +54,7 @@ def add_planet(request, star_id):
     new_planet = form.save(commit=False)
     new_planet.star_id = star_id
     new_planet.save()
-  return redirect('detail', star_id=star_id)
+  return redirect('detail_star', star_id=star_id)
 
 def detail_planet(request, star_id, planet_id):
   star = Star.objects.get(id=star_id)
@@ -66,3 +66,8 @@ def detail_planet(request, star_id, planet_id):
       'star':star,
       'planet':planet,
     })
+    
+def delete_planet(request, star_id,planet_id):
+  if request.method == 'POST':
+    Planet.objects.get(id=planet_id).delete()
+  return redirect('detail_star', star_id=star_id)
