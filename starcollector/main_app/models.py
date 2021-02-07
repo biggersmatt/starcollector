@@ -22,7 +22,7 @@ DESCRIP = (
 
 # Create your models here.
 class Star(models.Model):
-  name = models.CharField(max_length=100)
+  name = models.CharField(max_length=100, default='Enter Star Name')
   solar_mass = models.FloatField(default=0.0)
   spectral_type = models.CharField(
     max_length=1,

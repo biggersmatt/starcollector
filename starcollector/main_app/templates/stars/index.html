@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Stars</h1>
 <div class="row">
   <div class="col s6">
+    <h1>Stars</h1>
     {% for star in stars %}
       <a href="{% url 'detail_star' star.id %}">
         <div class="card">
@@ -12,18 +12,20 @@
             <p>Age: {{ star.age }}</p>
             <form action="{% url 'delete_star' star.id %}" method='POST'>
               {% csrf_token %}
-              <button type='submit' class='btn-small'>Delete</button>
+              <button type='submit' class='btn'>Delete</button>
             </form>
           </div>
         </div>
       </a>
     {% endfor %}
   </div>
+
   <div class="col s6">
-    <form action="{% url 'add_star' %}" method="POST">
+    <h1>Log a New Star</h1>
+    <form action="{% url 'add_star' %}" method="POST" class="form-padding">
       {% csrf_token %}
       {{star_form.as_p}}
-      <input type="submit" value="Add Star" class="btn-small">
+      <input type="submit" value="Add Star" class="btn">
     </form>
   </div>
 </div>

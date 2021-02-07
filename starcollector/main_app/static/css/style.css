@@ -32,6 +32,31 @@ footer {
   text-align: right;
 }
 
+/* FORM SELECT WINDOW */
+#id_name, #id_solar_mass, #id_spectral_type, #id_description {
+  border-bottom: 2px solid var(--primary-gold);
+}
+
+.select-wrapper input.select-dropdown,
+.select-wrapper input.select-dropdown:focus {
+  border-bottom: 2px solid var(--primary-gold);
+}
+
+.select-wrapper ul li {
+  background-color: var(--primary-grey);
+}
+
+.select-dropdown.dropdown-content li.selected,
+.select-dropdown.dropdown-content li.hover,
+body.keyboard-focused .select-dropdown.dropdown-content li:focus,
+body.keyboard-focused .select-dropdown.dropdown-content li:hover {
+  background-color: var(--secondary-gold);
+}
+
+.select-wrapper ul li span{
+  color: var(--primary-gold);
+}
+
 /* ADDITIONAL UNIVERSAL */
 #gold {
   color: var(--primary-gold);
@@ -39,6 +64,23 @@ footer {
 
 #gold:hover {
   color: var(--hover);
+}
+
+form {
+  background-color: rgba(22,22,21);
+  border: 2px solid var(--secondary-gold);
+}
+
+.form-padding {
+  padding: 10px;
+}
+
+label{
+  color: var(--primary-gold);
+}
+
+input {
+  color: var(--primary-gold);
 }
 
 /* BASE.HTML */
@@ -85,13 +127,13 @@ footer {
   justify-content: space-around;
 }
 
-.btn-small, .btn-small:focus {
+.btn, .btn-small:focus {
   background-color: var(--primary-grey);
   color: var(--primary-gold);
-  border-radius: 5px;
 }
 
-.btn-small:hover {
+.btn:hover {
   background-color: var(--secondary-gold);
   color: var(--hover);
 }
+
