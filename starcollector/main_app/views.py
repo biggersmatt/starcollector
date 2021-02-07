@@ -14,7 +14,7 @@ def stars_index(request):
   star_form = StarForm()
   return render(request, 'stars/index.html', {
     'stars': stars,
-    'star_form': star_form
+    'star_form': star_form,
   })
   
 def add_star(request):

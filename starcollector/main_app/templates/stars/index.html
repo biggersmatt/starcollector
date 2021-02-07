@@ -1,8 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>List of Stars</h1>
-
+<h1>Stars</h1>
 <div class="row">
   <div class="col s6">
     {% for star in stars %}
@@ -13,7 +12,7 @@
             <p>Age: {{ star.age }}</p>
             <form action="{% url 'delete_star' star.id %}" method='POST'>
               {% csrf_token %}
-              <button type='submit' class='btn'>Delete</button>
+              <button type='submit' class='btn-small'>Delete</button>
             </form>
           </div>
         </div>
@@ -24,11 +23,17 @@
     <form action="{% url 'add_star' %}" method="POST">
       {% csrf_token %}
       {{star_form.as_p}}
-      <input type="submit" value="Add Star" class="btn">
+      <input type="submit" value="Add Star" class="btn-small">
     </form>
   </div>
 </div>
 
-
+<script>
+  const specEl = document.getElementById('id_spectral_type');
+  M.FormSelect.init(specEl);
+  
+  const descripEl = document.getElementById('id_description');
+  M.FormSelect.init(descripEl);
+</script>
 
 {% endblock %}

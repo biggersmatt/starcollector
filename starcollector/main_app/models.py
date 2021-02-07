@@ -1,10 +1,40 @@
 from django.db import models
 
+SPECTRAL = (
+  ('O', '0'),
+  ('B', 'B'),
+  ('A', 'A'),
+  ('F', 'F'),
+  ('G', 'G'),
+  ('K', 'K'),
+  ('M', 'M'),
+)
+
+DESCRIP = (
+  ('1', 'Hypergiants'),
+  ('2', 'Supergiants'),
+  ('3', 'Giants'),
+  ('4', 'Subgiants'),
+  ('5', 'Dwarf'),
+  ('6', 'Subdwarf'),
+  ('7', 'White Dwarf'),
+)
+
 # Create your models here.
 class Star(models.Model):
   name = models.CharField(max_length=100)
-  age = models.IntegerField()
-  
+  solar_mass = models.FloatField(default=0.0)
+  spectral_type = models.CharField(
+    max_length=1,
+    choices=SPECTRAL,
+    default=SPECTRAL[0][0],
+  )
+  description = models.CharField(
+    max_length=1,
+    choices=DESCRIP,
+    default=DESCRIP[0][0],
+  )
+
   def __str__(self):
     return self.name
   

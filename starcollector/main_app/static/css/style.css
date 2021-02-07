@@ -47,7 +47,6 @@ footer {
   border-bottom: 5px solid var(--secondary-gold);
 }
 
-
 .page-footer {
   background-color: rgba(4,4,6);
 }
@@ -74,6 +73,25 @@ footer {
 }
 
 .btn-large:hover {
+  background-color: var(--secondary-gold);
+  color: var(--hover);
+}
+
+/* STARS/INDEX.HTML */
+.card-content {
+  background-color: rgba(22,22,21);
+  border: 5px solid var(--secondary-gold);
+  display: flex;
+  justify-content: space-around;
+}
+
+.btn-small, .btn-small:focus {
+  background-color: var(--primary-grey);
+  color: var(--primary-gold);
+  border-radius: 5px;
+}
+
+.btn-small:hover {
   background-color: var(--secondary-gold);
   color: var(--hover);
 }
