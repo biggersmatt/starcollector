@@ -1,13 +1,29 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<div id="cancel" class="row">
+  <div class="col s12">
+    <h1 class="center">{{ planet.name }}</h1>
+    <div class="card">
+      <div class="card-content">
+        <div class="card-content-details">
+          <div class="card-content-info">
+            <p>Orbits {{ star.name }}</p>
+            <p>Mass: {{ planet.get_mass_display }}</p>
+            <p>Orbit: {{ planet.get_orbit_display }}</p>
+          </div>
+      </div>
+    </div>
+  </div>
+    <a href="{% url 'detail_star' star.id %}" class="right">
+      <h6>Back to {{ star.name }}'s Details</h6>
+    </a>
+</div>
 
-<h1>{{planet.name}} Details Page</h1>
-<h3>{{planet.name}} orbits the star {{star.name}}</h3>
-{{form.as_p}}
-<form action="{% url 'delete_planet' star.id planet.id %}" method="POST">
-  {% csrf_token %}
-  <button type="submit" class="btn">Delete</button>
-</form>
-
+<script>
+  const massEl = document.getElementById('id_mass');
+  M.FormSelect.init(massEl);
+  const orbitEl = document.getElementById('id_orbit');
+  M.FormSelect.init(orbitEl);
+</script>
 {% endblock content %}
