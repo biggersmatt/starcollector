@@ -83,6 +83,14 @@ input {
   color: var(--primary-gold);
 }
 
+a {
+  color: var(--primary-gold);
+}
+
+a:hover {
+  color: var(--hover);
+}
+
 /* BASE.HTML */
 .nav-wrapper {
   background-color: rgba(22,22,21);
@@ -123,8 +131,12 @@ input {
 .card-content {
   background-color: rgba(22,22,21);
   border: 5px solid var(--secondary-gold);
-  display: flex;
-  justify-content: space-around;
+  text-align: center;
+}
+
+.card-content:hover {
+  background-color: var(--secondary-gold);
+  border: 5px solid var(--primary-gold);
 }
 
 .btn, .btn-small:focus {

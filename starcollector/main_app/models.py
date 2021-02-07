@@ -11,10 +11,10 @@ SPECTRAL = (
 )
 
 DESCRIP = (
-  ('1', 'Hypergiants'),
-  ('2', 'Supergiants'),
-  ('3', 'Giants'),
-  ('4', 'Subgiants'),
+  ('1', 'Hypergiant'),
+  ('2', 'Supergiant'),
+  ('3', 'Giant'),
+  ('4', 'Subgiant'),
   ('5', 'Dwarf'),
   ('6', 'Subdwarf'),
   ('7', 'White Dwarf'),
