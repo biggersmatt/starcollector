@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row">
+  <div class="col s3">
+    <h3>Edit Your Planet</h3>
+    <p>Edit the planets you have seen.</p>
+    <p>Keep your logs up to date.</p>
+  </div>
+  <div class="col s6" style="padding: 50px">
+    <div class="card">
+      <div class="card-content">
+        <form method="POST" class="form-padding" style="border: 1px solid rgba(22,22,21)">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button type="submit" class="btn">Submit</button>
+        </form>
+      </div>
+    </div>
+      <a href="{% url 'detail_planet' star.id planet.id %}" class="right">
+        <h6>- Cancel</h6>
+      </a>
+  </div>
+  <div class="col s3"></div>
+</div>
+
+<script>
+  const massEl = document.getElementById('id_mass');
+  M.FormSelect.init(massEl);
+  const orbitEl = document.getElementById('id_orbit');
+  M.FormSelect.init(orbitEl);
+</script>
+{% endblock content %}
+
+
+

@@ -69,6 +69,21 @@ def detail_planet(request, star_id, planet_id):
       'planet':planet,
     })
     
+def edit_planet(request, star_id, planet_id):
+  star = Star.objects.get(id=star_id)
+  planet = Planet.objects.get(id=planet_id)
+  if request.method == 'GET':
+    planet_form = PlanetForm(instance=planet)
+    return render(request, 'planets/edit.html', {
+      'form':planet_form,
+      'star': star,
+      'planet': planet})
+  else:
+    planet_form = PlanetForm(request.POST, instance=planet)
+    if planet_form.is_valid():
+      planet_form.save()
+      return redirect('detail_planet', star_id, planet_id)
+    
 def delete_planet(request, star_id,planet_id):
   if request.method == 'POST':
     Planet.objects.get(id=planet_id).delete()
