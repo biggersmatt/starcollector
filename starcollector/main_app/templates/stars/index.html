@@ -21,7 +21,7 @@
     <form action="{% url 'add_star' %}" method="POST" class="form-padding">
       {% csrf_token %}
       {{star_form.as_p}}
-      <input type="submit" value="Add Star" class="btn">
+      <input type="submit" value="Add Star" class="btn" id="add-star-btn">
     </form>
   </div>
 </div>

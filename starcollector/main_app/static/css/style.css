@@ -139,6 +139,11 @@ a:hover {
   border: 5px solid var(--primary-gold);
 }
 
+#add-star-btn {
+  border: 1px solid var(--primary-gold);
+  width: 100%;
+}
+
 .btn, .btn-small:focus {
   background-color: var(--primary-grey);
   color: var(--primary-gold);
