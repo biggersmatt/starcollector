@@ -14,4 +14,7 @@ class StarForm(forms.ModelForm):
 class PlanetForm(forms.ModelForm):
   class Meta:
     model = Planet
-    fields = ['name', 'size']
+    fields = [
+      'name',
+      'mass',
+      'orbit',]

@@ -38,21 +38,39 @@ class Star(models.Model):
   def __str__(self):
     return self.name
   
-SIZES  = (
-  ('S', 'Small'),
-  ('M', 'Medium'),
-  ('L', 'Large')
+MASS  = (
+  ('1', 'Giant Planet'),
+  ('2', 'Ice Giant'),
+  ('3', 'Mesoplanet'),
+  ('4', 'Mini-Neptune'),
+  ('5', 'Planetar'),
+  ('6', 'Super-Earth'),
+  ('7', 'Super-Jupiter'),
+  ('8', 'Sub-Earth'),
+)
+
+ORBIT = (
+  ('1', 'Circumbinary'),
+  ('2', 'Exoplanet'),
+  ('3', 'Goldilocks'),
+  ('4', 'Pulsar'),
+  ('5', 'Rogue'),
 )
   
 class Planet(models.Model):
   name = models.CharField(max_length=100)
-  size = models.CharField(
+  mass = models.CharField(
     max_length=1,
-    choices=SIZES,
-    default=SIZES[0][0]
+    choices=MASS,
+    default=MASS[0][0]
+  )
+  orbit = models.CharField(
+    max_length=1,
+    choices=ORBIT,
+    default=ORBIT[0][0]
   )
   
   star = models.ForeignKey(Star, on_delete=models.CASCADE)
   
   def __str__(self):
-    return f'{self.name} is a {self.get_size_display()} size planet'
+    return f'{self.name} is a {self.get_mass_display()} mass planet'
