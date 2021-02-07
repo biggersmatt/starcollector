@@ -48,6 +48,7 @@ footer {
 
 .select-dropdown.dropdown-content li.selected,
 .select-dropdown.dropdown-content li.hover,
+.select-dropdown.dropdown-trigger li.selected,
 body.keyboard-focused .select-dropdown.dropdown-content li:focus,
 body.keyboard-focused .select-dropdown.dropdown-content li:hover {
   background-color: var(--secondary-gold);
@@ -134,7 +135,7 @@ a:hover {
   text-align: center;
 }
 
-.card-content:hover {
+.card-content-index:hover {
   background-color: var(--secondary-gold);
   border: 5px solid var(--primary-gold);
 }
@@ -147,6 +148,7 @@ a:hover {
 .btn, .btn-small:focus {
   background-color: var(--primary-grey);
   color: var(--primary-gold);
+  height: 50px;
 }
 
 .btn:hover {
@@ -154,3 +156,35 @@ a:hover {
   color: var(--hover);
 }
 
+/* STARS/DETAILS.HTML */
+.card-content-details {
+  display: flex;
+  justify-content: space-around;
+  height: 50vh;
+}
+
+.card-content-details p {
+  font-size: 2em;
+  border-bottom: 2px solid var(--secondary-gold);
+  padding: 20px;
+}
+
+.card-content-planets {
+  background-color: #fff;
+  width: 50%;
+}
+
+.card-content-btn {
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-btn {
+  border: 2px solid var(--secondary-gold);
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.delete-btn {
+  width: 100%;
+}

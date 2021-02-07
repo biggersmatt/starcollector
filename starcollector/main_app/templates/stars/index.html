@@ -7,7 +7,7 @@
     {% for star in stars %}
       <a href="{% url 'detail_star' star.id %}">
         <div class="card">
-          <div class="card-content">
+          <div class="card-content card-content-index">
             <span class="card-title">{{ star.name }}</span>
             <p>{{ star.get_description_display }}</p>
           </div>

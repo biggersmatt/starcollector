@@ -1,44 +1,60 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Star Details</h1>
 <div class="row">
-  <div class="col s6">
+  <div class="col s12">
+    <h1 class="center">{{ star.name }}</h1>
     <div class="card">
       <div class="card-content">
-        <span class="card-title">{{ star.name }}</span>
-        <a href="{% url 'edit_star' star.id %}" class="btn">Edit</a>
-        <form action="{% url 'delete_star' star.id %}" method='POST'>
-          {% csrf_token %}
-          <button type='submit' class='btn'>Delete</button>
-        </form>
+        <div class="card-content-details">
+          <div class="card-content-info">
+            <p>Solar Mass: {{ star.solar_mass }}</p>
+            <p>Spectral Type: {{ star.get_spectral_type_display }}</p>
+            <p>Class: {{ star.get_description_display }}</p>
+          </div>
+          <div class="card-content-planets">
+            <table class="striped">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Size</th>
+                </tr>
+              </thead>
+              <tbody>
+                  {% for planet in star.planet_set.all %}
+                      <tr>
+                        <td><a href="{% url 'detail_planet' star.id planet.id%}">{{ planet.name }}</a></td>
+                        <td>{{ planet.get_size_display }}</td>
+                      </tr>
+                  {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="card-content-btn">
+          <a href="{% url 'edit_star' star.id %}">
+            <button class='btn edit-btn'>Edit</button>
+          </a>
+          <form action="{% url 'delete_star' star.id %}" method='POST'>
+            {% csrf_token %}
+            <button type='submit' class='btn delete-btn'>Delete</button>
+          </form>
+        </div>
       </div>
     </div>
   </div>
-  <div class="col s6">
+
+  <div class="col s12">
+    <h1 class="center">New Planet Discovered</h1>
     <form method="POST" action="{% url 'add_planet' star.id %}">
       {% csrf_token %}
       {{ planet_form.as_p }}
       <input type="submit" value="Add Planet" class="btn">
     </form>
-    <table class="striped">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Size</th>
-        </tr>
-      </thead>
-        <tbody>
-            {% for planet in star.planet_set.all %}
-                <tr>
-                  <td><a href="{% url 'detail_planet' star.id planet.id%}">{{ planet.name }}</a></td>
-                  <td>{{ planet.get_size_display }}</td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
   </div>
 </div>
+
 <script>
   const selectEl = document.getElementById('id_size');
   M.FormSelect.init(selectEl);
