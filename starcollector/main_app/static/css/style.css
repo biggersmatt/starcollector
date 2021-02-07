@@ -1,5 +1,17 @@
+:root {
+  --primary-gold: rgba(214,171,99);
+  --secondary-gold: rgba(114,92,55);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
 body {
-  background-color: lightblue;
+  background: url('/static/images/Homepage.jpg');
+  background-size: 100% 100%;
+  color: var(--primary-gold);
   display: flex;
   min-height: 100vh;
   flex-direction: column;
@@ -14,16 +26,29 @@ footer {
   text-align: right;
 }
 
-/* Base.html */
-.nav-wrapper {
-  background-color: grey;
-  height: 100px;
+/* BASE.HTML */
+.homepage-wrapper {
+
+  border-radius: 50px 10px;
+  opacity: 0.9;
+  margin-top: 20vh;
 }
 
-.right {
-  color: purple
+.homepage-top {
+  text-align: center;
 }
 
-h1 {
-  color: red;
+.homepage-bottom {
+  margin-top: 25vh;
+  text-align: center;
+
+}
+
+.btn-large {
+  background-color: rgba(66,66,66);
+  border-radius: 5px;
+}
+
+.btn-large:hover {
+  background-color: var(--secondary-gold);
 }
