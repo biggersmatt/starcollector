@@ -3,6 +3,7 @@
   --secondary-gold: rgba(114,92,55);
   --primary-grey: rgba(66,66,66);
   --secondary-grey: rgba(94,89,83);
+  --hover: rgba(197,187,169);
 }
 
 * {
@@ -36,15 +37,16 @@ footer {
   color: var(--primary-gold);
 }
 
+#gold:hover {
+  color: var(--hover);
+}
+
 /* BASE.HTML */
 .nav-wrapper {
   background-color: rgba(22,22,21);
   border-bottom: 5px solid var(--secondary-gold);
 }
 
-.right {
-  color: var(--primary-gold);
-}
 
 .page-footer {
   background-color: rgba(4,4,6);
@@ -73,4 +75,5 @@ footer {
 
 .btn-large:hover {
   background-color: var(--secondary-gold);
+  color: var(--hover);
 }
