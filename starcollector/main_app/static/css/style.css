@@ -170,8 +170,20 @@ a:hover {
 }
 
 .card-content-planets {
-  background-color: #fff;
+  display:flex;
+  flex-direction: column;
   width: 50%;
+}
+
+.star-details-planet-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.planet-detail-btn {
+  border: 2px solid var(--primary-gold);
+  width: 100%;
+  margin: 5px 0;
 }
 
 .card-content-btn {

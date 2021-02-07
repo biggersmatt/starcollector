@@ -13,22 +13,17 @@
             <p>Class: {{ star.get_description_display }}</p>
           </div>
           <div class="card-content-planets">
-            <table class="striped">
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Size</th>
-                </tr>
-              </thead>
-              <tbody>
-                  {% for planet in star.planet_set.all %}
-                      <tr>
-                        <td><a href="{% url 'detail_planet' star.id planet.id%}">{{ planet.name }}</a></td>
-                        <td>{{ planet.get_size_display }}</td>
-                      </tr>
-                  {% endfor %}
-              </tbody>
-            </table>
+            <div class="star-details-planet-header">
+              <h5>Planets</h5>
+              <a href="#new-planet">
+                <h6>+ New</h6>
+              </a>
+            </div>
+            {% for planet in star.planet_set.all %}
+              <a href="{% url 'detail_planet' star.id planet.id%}">
+                <button class='btn planet-detail-btn'>{{ planet.name }}</button>
+              </a>
+            {% endfor %}
           </div>
         </div>
 
@@ -45,7 +40,7 @@
     </div>
   </div>
 
-  <div class="col s12">
+  <div id="new-planet" class="col s12">
     <h1 class="center">New Planet Discovered</h1>
     <form method="POST" action="{% url 'add_planet' star.id %}">
       {% csrf_token %}
