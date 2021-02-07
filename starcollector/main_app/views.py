@@ -28,7 +28,9 @@ def edit_star(request, star_id):
   star = Star.objects.get(id=star_id)
   if request.method == 'GET':
     star_form = StarForm(instance=star)
-    return render(request, 'stars/edit.html', {'form':star_form})
+    return render(request, 'stars/edit.html', {
+      'form':star_form,
+      'star': star })
   else:
     star_form = StarForm(request.POST, instance=star)
     if star_form.is_valid():
