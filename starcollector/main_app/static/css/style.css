@@ -1,6 +1,8 @@
 :root {
   --primary-gold: rgba(214,171,99);
   --secondary-gold: rgba(114,92,55);
+  --primary-grey: rgba(66,66,66);
+  --secondary-grey: rgba(94,89,83);
 }
 
 * {
@@ -9,8 +11,11 @@
 }
 
 body {
-  background: url('/static/images/Homepage.jpg');
-  background-size: 100% 100%;
+  background-image: url('/static/images/Homepage.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
   color: var(--primary-gold);
   display: flex;
   min-height: 100vh;
@@ -26,9 +31,27 @@ footer {
   text-align: right;
 }
 
-/* BASE.HTML */
-.homepage-wrapper {
+/* ADDITIONAL UNIVERSAL */
+#gold {
+  color: var(--primary-gold);
+}
 
+/* BASE.HTML */
+.nav-wrapper {
+  background-color: rgba(22,22,21);
+  border-bottom: 5px solid var(--secondary-gold);
+}
+
+.right {
+  color: var(--primary-gold);
+}
+
+.page-footer {
+  background-color: rgba(4,4,6);
+}
+
+/* HOMEPAGE.HTML */
+.homepage-wrapper {
   border-radius: 50px 10px;
   opacity: 0.9;
   margin-top: 20vh;
@@ -38,14 +61,13 @@ footer {
   text-align: center;
 }
 
-.homepage-bottom {
-  margin-top: 25vh;
-  text-align: center;
-
+.homepage-enter {
+  border: 2px solid var(--primary-gold);
 }
 
-.btn-large {
-  background-color: rgba(66,66,66);
+.btn-large, .btn-large:focus {
+  background-color: var(--primary-grey);
+  color: var(--primary-gold);
   border-radius: 5px;
 }
 
