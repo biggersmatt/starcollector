@@ -19,11 +19,15 @@
                 <h6>+ New</h6>
               </a>
             </div>
-            {% for planet in star.planet_set.all %}
-              <a href="{% url 'detail_planet' star.id planet.id%}">
-                <button class='btn planet-detail-btn'>{{ planet.name }}</button>
-              </a>
-            {% endfor %}
+            {% if star.planet_set.all %}
+              {% for planet in star.planet_set.all %}
+                <a href="{% url 'detail_planet' star.id planet.id%}">
+                  <button class='btn planet-detail-btn'>{{ planet.name }}</button>
+                </a>
+              {% endfor %}
+            {% else %}
+              <h4>No Planets Logged</h4>
+            {% endif %}
           </div>
         </div>
 
