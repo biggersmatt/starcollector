@@ -50,7 +50,7 @@
     <form method="POST" action="{% url 'add_planet' star.id %}" class="form-padding">
       {% csrf_token %}
       {{ planet_form.as_p }}
-      <input type="submit" value="Add Planet" class="btn">
+      <input type="submit" value="Add Planet" class="btn" id="add-star-btn">
     </form>
       <a href="#cancel" class="right">
         <h6>- Cancel</h6>

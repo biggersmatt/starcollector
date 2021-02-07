@@ -76,6 +76,16 @@ form {
   padding: 10px;
 }
 
+.form-padding input {
+  display: inline;
+  text-align: center;
+}
+
+form input#add-star-btn {
+  width: 100%;
+  text-align: center;
+}
+
 label{
   color: var(--primary-gold);
 }
@@ -142,7 +152,7 @@ a:hover {
 
 #add-star-btn {
   border: 1px solid var(--primary-gold);
-  width: 100%;
+  width: 95%;
 }
 
 .btn, .btn-small:focus {
