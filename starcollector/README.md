@@ -8,6 +8,7 @@ This application gives you the ability to log the stars you've observed and any 
   - HTML
   - CSS
   - Javascript
+  - Postgresql
 
 
 <h2>Existing Features</h2>
