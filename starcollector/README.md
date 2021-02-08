@@ -2,11 +2,11 @@
 This application gives you the ability to log the stars you've observed and any planets orbiting them.
 
 <h2>Technologies Used</h2>
-- Django
-- Python
-- HTML
-- CSS
-- Javascript
+* Django
+* Python
+* HTML
+* CSS
+* Javascript
 
 <h2>Existing Features</h2>
 Two Models
