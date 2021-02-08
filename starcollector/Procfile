@@ -1,0 +1,1 @@
+web: gunicorn starcollector_project.wsgi
