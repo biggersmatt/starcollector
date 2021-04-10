@@ -25,7 +25,6 @@ This application gives you the ability to log the stars you've observed and any 
 <h2>Planned Features</h2>
 
 - Create a User Model
-- Authentication
 - Create a Moon Model for Planets
 - Create a Galaxy Model for Stars
 - CSS Animations
